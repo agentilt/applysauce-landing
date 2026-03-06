@@ -63,8 +63,8 @@ export default function Home() {
 
       {/* ════════ NAV ════════ */}
       <nav className="nav-glass fixed top-0 left-0 right-0 z-50 border-b border-white/[0.04]">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3 sm:px-10">
-          <Image src="/logo.png" alt="ApplySauce" width={280} height={84} className="h-auto w-52 sm:w-64" />
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-1.5 sm:px-10">
+          <Image src="/logo.png" alt="ApplySauce" width={360} height={108} className="h-auto w-60 sm:w-72" />
           <div className="flex items-center gap-8">
             <a href="#features" className="hidden text-sm text-white/50 transition hover:text-white md:block font-medium">
               Features
