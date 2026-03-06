@@ -84,7 +84,7 @@ export default function Home() {
       </nav>
 
       {/* ════════ HERO — Poster style, centered ════════ */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-28 pb-16 sm:px-10 bg-halftone">
+      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-28 pb-8 sm:px-10 bg-halftone">
         {/* Radial glow — subtle, not a blob */}
         <div className="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[800px] rounded-full bg-brand/[0.03] blur-[100px]" />
 
@@ -101,13 +101,13 @@ export default function Home() {
                 className="drop-shadow-[0_30px_80px_rgba(245,184,0,0.2)]"
               />
               {/* Floating tags */}
-              <div className="absolute -left-20 top-8 z-20 animate-float-gentle rounded-lg bg-bg-card border border-white/[0.06] px-3 py-2 shadow-xl" style={{ animationDelay: "1s" }}>
+              <div className="absolute -left-6 sm:-left-16 top-4 z-20 animate-float-gentle rounded-lg bg-bg-card border border-white/[0.06] px-3 py-2 shadow-xl" style={{ animationDelay: "1s" }}>
                 <div className="flex items-center gap-1.5">
                   <div className="h-2 w-2 rounded-full bg-green-400" />
                   <span className="text-[11px] font-semibold text-white/70">ATS: 94</span>
                 </div>
               </div>
-              <div className="absolute -right-16 bottom-4 z-20 animate-float-gentle rounded-lg bg-brand px-3 py-2 shadow-xl" style={{ animationDelay: "2.5s" }}>
+              <div className="absolute -right-4 sm:-right-12 bottom-2 z-20 animate-float-gentle rounded-lg bg-brand px-3 py-2 shadow-xl" style={{ animationDelay: "2.5s" }}>
                 <span className="text-[11px] font-bold text-bg">CV Ready</span>
               </div>
             </div>
@@ -174,13 +174,13 @@ export default function Home() {
       </section>
 
       {/* ════════ FEATURES — Editorial zigzag with golden thread ════════ */}
-      <section id="features" className="relative px-6 py-28 sm:px-10 lg:px-20">
+      <section id="features" className="relative px-6 pt-16 pb-28 sm:px-10 lg:px-20">
         {/* The golden thread — a vertical line connecting all features */}
         <div className="golden-thread pointer-events-none absolute inset-0 hidden lg:block" />
 
         <div className="mx-auto max-w-6xl">
           {/* Section header — centered above the thread */}
-          <div className="relative z-10 mb-24 text-center">
+          <div className="relative z-10 mb-16 text-center">
             <span className="font-display text-sm font-bold uppercase tracking-[0.2em] text-brand/60">
               What&apos;s in the Sauce
             </span>
@@ -203,21 +203,23 @@ export default function Home() {
                 >
                   {/* Number + Title side */}
                   <div className={`flex-1 ${isEven ? "lg:text-right" : "lg:text-left"}`}>
-                    <div className={`flex items-baseline gap-4 ${isEven ? "lg:justify-end" : "lg:justify-start"}`}>
-                      <span className={`font-display text-7xl sm:text-8xl lg:text-9xl font-extrabold leading-none ${
+                    <div className={`flex items-center gap-4 ${isEven ? "lg:justify-end" : "lg:justify-start"}`}>
+                      <span className={`font-display text-6xl sm:text-7xl lg:text-8xl font-extrabold leading-none ${
                         f.accent ? "text-brand" : "text-white/[0.06]"
                       }`}>
                         {f.num}
                       </span>
+                      <div>
+                        <h3 className={`font-display text-2xl font-bold tracking-tight sm:text-3xl ${
+                          f.accent ? "text-brand" : "text-white"
+                        }`}>
+                          {f.title}
+                        </h3>
+                        <span className="mt-0.5 inline-block font-serif italic text-sm text-white/25">
+                          {f.keyword}
+                        </span>
+                      </div>
                     </div>
-                    <h3 className={`mt-2 font-display text-2xl font-bold tracking-tight sm:text-3xl ${
-                      f.accent ? "text-brand" : "text-white"
-                    }`}>
-                      {f.title}
-                    </h3>
-                    <span className="mt-1 inline-block font-serif italic text-sm text-white/25">
-                      {f.keyword}
-                    </span>
                   </div>
 
                   {/* Center dot — on the thread */}
