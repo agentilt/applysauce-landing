@@ -9,7 +9,6 @@
   --color-bg-card: #111114;
   --color-bg-card-hover: #18181D;
   --color-bg-elevated: #1E1E24;
-  --color-cream: #FFF8E7;
   --color-accent: #FF6B35;
   --color-ink: #1A1814;
   --font-display: "Bricolage Grotesque", sans-serif;
@@ -17,7 +16,7 @@
   --font-sans: "Outfit", sans-serif;
 }
 
-/* ── Noise grain overlay ── */
+/* ── Noise grain ── */
 body::before {
   content: "";
   position: fixed;
@@ -30,45 +29,27 @@ body::before {
   background-size: 256px 256px;
 }
 
-::selection {
-  background: var(--color-brand);
-  color: var(--color-bg);
-}
-
+::selection { background: var(--color-brand); color: var(--color-bg); }
 html { scroll-behavior: smooth; }
-
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--color-brand); border-radius: 3px; }
 
+/* ── Halftone background — replaces generic blobs ── */
+.bg-halftone {
+  background-image: radial-gradient(circle, rgba(245, 184, 0, 0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
 /* ── Keyframes ── */
-@keyframes blob-drift {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  25% { transform: translate(30px, -50px) scale(1.1); }
-  50% { transform: translate(-20px, 20px) scale(0.95); }
-  75% { transform: translate(50px, 30px) scale(1.05); }
-}
-
-@keyframes blob-reverse {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  25% { transform: translate(-40px, 30px) scale(0.95); }
-  50% { transform: translate(30px, -40px) scale(1.1); }
-  75% { transform: translate(-20px, -20px) scale(1.02); }
-}
-
 @keyframes float {
   0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(2deg); }
+  50% { transform: translateY(-20px) rotate(1.5deg); }
 }
 
 @keyframes float-gentle {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }
-}
-
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
 }
 
 @keyframes fade-up {
@@ -81,25 +62,21 @@ html { scroll-behavior: smooth; }
   to { opacity: 1; }
 }
 
-@keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px var(--color-brand-glow), 0 0 60px transparent; }
-  50% { box-shadow: 0 0 30px var(--color-brand-glow), 0 0 80px var(--color-brand-glow); }
+@keyframes draw-down {
+  from { height: 0; }
+  to { height: 100%; }
 }
 
-@keyframes spin-slow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(245, 184, 0, 0.3); }
+  50% { box-shadow: 0 0 0 8px rgba(245, 184, 0, 0); }
 }
 
 /* ── Animation classes ── */
-.animate-blob { animation: blob-drift 20s ease-in-out infinite; }
-.animate-blob-reverse { animation: blob-reverse 25s ease-in-out infinite; }
 .animate-float { animation: float 6s ease-in-out infinite; }
 .animate-float-gentle { animation: float-gentle 8s ease-in-out infinite; }
-.animate-marquee { animation: marquee 40s linear infinite; }
 .animate-fade-up { animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
 .animate-fade-in { animation: fade-in 0.7s ease-out both; }
-.animate-spin-slow { animation: spin-slow 40s linear infinite; }
 
 .delay-100 { animation-delay: 100ms; }
 .delay-200 { animation-delay: 200ms; }
@@ -107,6 +84,8 @@ html { scroll-behavior: smooth; }
 .delay-400 { animation-delay: 400ms; }
 .delay-500 { animation-delay: 500ms; }
 .delay-600 { animation-delay: 600ms; }
+.delay-700 { animation-delay: 700ms; }
+.delay-800 { animation-delay: 800ms; }
 .delay-1000 { animation-delay: 1000ms; }
 
 /* ── Navbar ── */
@@ -116,88 +95,12 @@ html { scroll-behavior: smooth; }
   -webkit-backdrop-filter: blur(24px) saturate(1.5);
 }
 
-/* ── Feature cards — two variants only ── */
-.feature-card {
-  position: relative;
-  overflow: hidden;
-  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.feature-card:hover {
-  transform: translateY(-4px);
-}
-
-/* Dark variant (default) */
-.feature-card-dark {
-  background: var(--color-bg-card);
-  border: 1px solid rgba(255, 255, 255, 0.04);
-}
-.feature-card-dark:hover {
-  border-color: rgba(245, 184, 0, 0.15);
-  box-shadow: 0 20px 60px -20px rgba(245, 184, 0, 0.08);
-}
-
-/* Brand accent variant */
-.feature-card-brand {
-  background: linear-gradient(135deg, var(--color-brand), var(--color-brand-dark));
-  color: var(--color-bg);
-}
-.feature-card-brand:hover {
-  box-shadow: 0 20px 60px -20px rgba(245, 184, 0, 0.3);
-}
-
-/* ── Ghost numbers ── */
-.feature-number {
-  position: absolute;
-  top: -0.15em;
-  right: 0.1em;
-  font-size: 8rem;
-  font-weight: 800;
-  line-height: 1;
-  opacity: 0.05;
-  pointer-events: none;
-  font-family: var(--font-display);
-}
-.feature-card-brand .feature-number {
-  opacity: 0.12;
-  color: var(--color-bg);
-}
-
-/* ── Top-edge glow on dark cards ── */
-.feature-card-dark::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 60%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--color-brand), transparent);
-  transform: translateX(-50%) scaleX(0);
-  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.feature-card-dark:hover::before {
-  transform: translateX(-50%) scaleX(1);
-}
-.feature-card-dark::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 120px;
-  height: 120px;
-  background: radial-gradient(circle, var(--color-brand-glow) 0%, transparent 70%);
-  transform: translate(-50%, -60%);
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-.feature-card-dark:hover::after {
-  opacity: 1;
-}
-
 /* ── Button ── */
 .btn-primary {
   position: relative;
   overflow: hidden;
   z-index: 1;
+  transition: box-shadow 0.4s ease;
 }
 .btn-primary::before {
   content: "";
@@ -211,41 +114,89 @@ html { scroll-behavior: smooth; }
 .btn-primary:hover::before {
   transform: translateY(0);
 }
-
-/* ── Hover glow (not constant) ── */
-.btn-hover-glow {
-  transition: box-shadow 0.4s ease;
-}
-.btn-hover-glow:hover {
+.btn-primary:hover {
   box-shadow: 0 0 30px var(--color-brand-glow), 0 0 80px var(--color-brand-glow);
 }
 
-/* ── Step card ── */
-.step-card {
+/* ── Feature zigzag row ── */
+.feature-row {
   transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.step-card:hover {
-  transform: translateY(-6px) rotate(-0.5deg);
-  border-color: rgba(245, 184, 0, 0.2);
-  box-shadow: 0 20px 60px -20px rgba(245, 184, 0, 0.1);
+.feature-row:hover {
+  transform: translateX(8px);
+}
+.feature-row.row-reverse:hover {
+  transform: translateX(-8px);
 }
 
-/* ── Stat separator ── */
-.stat-sep {
+/* ── The golden thread — vertical connector between sections ── */
+.golden-thread {
   position: relative;
 }
-.stat-sep::after {
+.golden-thread::before {
   content: "";
   position: absolute;
-  right: 0;
-  top: 15%;
-  height: 70%;
+  left: 50%;
+  top: 0;
+  bottom: 0;
   width: 1px;
-  background: linear-gradient(to bottom, transparent, rgba(245, 184, 0, 0.12), transparent);
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(245, 184, 0, 0.15) 10%,
+    rgba(245, 184, 0, 0.15) 90%,
+    transparent
+  );
+  transform: translateX(-50%);
 }
-.stat-sep:last-child::after { display: none; }
+
+/* ── Pipeline node ── */
+.pipeline-node {
+  position: relative;
+  transition: all 0.4s ease;
+}
+.pipeline-node:hover {
+  transform: translateY(-4px);
+}
+.pipeline-node::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-brand);
+  box-shadow: 0 0 20px var(--color-brand-glow);
+  animation: pulse-dot 3s ease-in-out infinite;
+  z-index: 2;
+}
+.pipeline-node:hover::before {
+  background: var(--color-accent);
+  box-shadow: 0 0 25px rgba(255, 107, 53, 0.3);
+}
+
+/* ── Pipeline connector line ── */
+.pipeline-line {
+  position: absolute;
+  top: 7px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(245, 184, 0, 0.2) 10%,
+    rgba(245, 184, 0, 0.2) 90%,
+    transparent
+  );
+  z-index: 1;
+}
 
 @media (max-width: 768px) {
-  .feature-number { font-size: 5rem; }
-  .stat-sep::after { display: none; }
+  .feature-row:hover,
+  .feature-row.row-reverse:hover {
+    transform: none;
+  }
 }
