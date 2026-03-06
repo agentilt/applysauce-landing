@@ -375,7 +375,7 @@ export default function Home() {
                 className="step-card group rounded-3xl bg-white p-8 shadow-[0_1px_3px_rgba(0,0,0,0.04)] border border-ink/[0.04]"
               >
                 {/* Number */}
-                <div className="mb-8 font-display text-6xl font-extrabold text-ink/[0.04] leading-none">
+                <div className="mb-8 font-display text-6xl font-extrabold text-ink/[0.1] leading-none">
                   {s.num}
                 </div>
 
