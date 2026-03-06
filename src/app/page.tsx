@@ -64,8 +64,8 @@ export default function Home() {
       {/* ════════ NAV ════════ */}
       <nav className="nav-glass fixed top-0 left-0 right-0 z-50 border-b border-white/[0.04]">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-1.5 sm:px-10">
-          <Image src="/logo.png" alt="ApplySauce" width={360} height={108} className="h-auto w-60 sm:w-72" />
-          <div className="flex items-center gap-8">
+          <Image src="/logo.png" alt="ApplySauce" width={360} height={108} className="h-auto w-36 sm:w-72" />
+          <div className="flex items-center gap-3 sm:gap-8">
             <a href="#features" className="hidden text-sm text-white/50 transition hover:text-white md:block font-medium">
               Features
             </a>
@@ -83,7 +83,7 @@ export default function Home() {
       </nav>
 
       {/* ════════ HERO — Poster style, centered ════════ */}
-      <section className="relative flex flex-col items-center px-6 pt-40 pb-20 sm:px-10 bg-halftone">
+      <section className="relative flex flex-col items-center px-4 pt-28 pb-14 sm:px-10 sm:pt-40 sm:pb-20 bg-halftone">
         {/* Radial glow — subtle, not a blob */}
         <div className="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[800px] rounded-full bg-brand/[0.03] blur-[100px]" />
 
@@ -97,36 +97,36 @@ export default function Home() {
                 width={260}
                 height={260}
                 priority
-                className="drop-shadow-[0_30px_80px_rgba(245,184,0,0.2)]"
+                className="w-40 h-40 sm:w-[260px] sm:h-[260px] drop-shadow-[0_30px_80px_rgba(245,184,0,0.2)]"
               />
               {/* Floating tags */}
-              <div className="absolute -left-6 sm:-left-16 top-4 z-20 animate-float-gentle rounded-lg bg-bg-card border border-white/[0.06] px-3 py-2 shadow-xl" style={{ animationDelay: "1s" }}>
+              <div className="absolute -left-2 sm:-left-16 top-2 sm:top-4 z-20 animate-float-gentle rounded-lg bg-bg-card border border-white/[0.06] px-2 py-1.5 sm:px-3 sm:py-2 shadow-xl" style={{ animationDelay: "1s" }}>
                 <div className="flex items-center gap-1.5">
                   <div className="h-2 w-2 rounded-full bg-green-400" />
-                  <span className="text-[11px] font-semibold text-white/70">ATS: 94</span>
+                  <span className="text-[10px] sm:text-[11px] font-semibold text-white/70">ATS: 94</span>
                 </div>
               </div>
-              <div className="absolute -right-4 sm:-right-12 bottom-2 z-20 animate-float-gentle rounded-lg bg-brand px-3 py-2 shadow-xl" style={{ animationDelay: "2.5s" }}>
-                <span className="text-[11px] font-bold text-bg">CV Ready</span>
+              <div className="absolute -right-1 sm:-right-12 bottom-1 sm:bottom-2 z-20 animate-float-gentle rounded-lg bg-brand px-2 py-1.5 sm:px-3 sm:py-2 shadow-xl" style={{ animationDelay: "2.5s" }}>
+                <span className="text-[10px] sm:text-[11px] font-bold text-bg">CV Ready</span>
               </div>
             </div>
           </div>
 
           {/* Headline */}
           <h1 className="animate-fade-up delay-100">
-            <span className="block font-display text-5xl font-extrabold leading-[1.0] tracking-tight sm:text-6xl lg:text-7xl xl:text-[5.5rem]">
+            <span className="block font-display text-3xl font-extrabold leading-[1.0] tracking-tight sm:text-6xl lg:text-7xl xl:text-[5.5rem]">
               Land your
             </span>
-            <span className="block font-serif italic text-5xl leading-[1.1] sm:text-6xl lg:text-7xl xl:text-[5.5rem] text-brand mt-1">
+            <span className="block font-serif italic text-3xl leading-[1.1] sm:text-6xl lg:text-7xl xl:text-[5.5rem] text-brand mt-1">
               dream job,
             </span>
-            <span className="block font-display text-5xl font-extrabold leading-[1.0] tracking-tight sm:text-6xl lg:text-7xl xl:text-[5.5rem] mt-1">
+            <span className="block font-display text-3xl font-extrabold leading-[1.0] tracking-tight sm:text-6xl lg:text-7xl xl:text-[5.5rem] mt-1">
               faster.
             </span>
           </h1>
 
           {/* Subhead */}
-          <p className="animate-fade-up delay-300 mx-auto mt-8 max-w-lg text-lg leading-relaxed text-white/45 sm:text-xl">
+          <p className="animate-fade-up delay-300 mx-auto mt-6 max-w-lg text-base leading-relaxed text-white/45 sm:mt-8 sm:text-xl">
             ApplySauce automates your entire job search &mdash; from discovery
             and ATS scoring to tailored CVs and interview prep.
           </p>
@@ -135,7 +135,7 @@ export default function Home() {
           <div className="animate-fade-up delay-400 mt-10 flex flex-wrap justify-center gap-4">
             <a
               href="https://app.applysauce.com"
-              className="btn-primary group rounded-full bg-brand px-8 py-4 font-bold text-bg text-lg"
+              className="btn-primary group rounded-full bg-brand px-6 py-3 font-bold text-bg text-base sm:px-8 sm:py-4 sm:text-lg"
             >
               <span className="relative z-10 flex items-center gap-2">
                 Get Started Free
@@ -144,7 +144,7 @@ export default function Home() {
             </a>
             <a
               href="#how"
-              className="group rounded-full border border-white/10 px-8 py-4 font-semibold text-white/60 transition-all hover:border-brand/30 hover:text-white"
+              className="group rounded-full border border-white/10 px-6 py-3 font-semibold text-white/60 transition-all hover:border-brand/30 hover:text-white sm:px-8 sm:py-4"
             >
               How it Works
             </a>
@@ -280,8 +280,8 @@ export default function Home() {
                 <Image
                   src="/mascot.png"
                   alt="ApplySauce mascot"
-                  width={80}
-                  height={80}
+                  width={120}
+                  height={120}
                   className="drop-shadow-[0_10px_30px_rgba(245,184,0,0.12)]"
                 />
               </div>
