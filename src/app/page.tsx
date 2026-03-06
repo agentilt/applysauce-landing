@@ -84,7 +84,7 @@ export default function Home() {
       </nav>
 
       {/* ════════ HERO — Poster style, centered ════════ */}
-      <section className="relative flex flex-col items-center px-6 pt-32 pb-20 sm:px-10 bg-halftone">
+      <section className="relative flex flex-col items-center px-6 pt-40 pb-20 sm:px-10 bg-halftone">
         {/* Radial glow — subtle, not a blob */}
         <div className="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[800px] rounded-full bg-brand/[0.03] blur-[100px]" />
 
