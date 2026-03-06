@@ -65,7 +65,7 @@ export default function Home() {
       {/* ════════ NAV ════════ */}
       <nav className="nav-glass fixed top-0 left-0 right-0 z-50 border-b border-white/[0.04]">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 sm:px-10">
-          <Image src="/logo.png" alt="ApplySauce" width={160} height={48} className="h-auto w-32 sm:w-36" />
+          <Image src="/logo.png" alt="ApplySauce" width={200} height={60} className="h-auto w-40 sm:w-48" />
           <div className="flex items-center gap-8">
             <a href="#features" className="hidden text-sm text-white/50 transition hover:text-white md:block font-medium">
               Features
@@ -95,8 +95,8 @@ export default function Home() {
               <Image
                 src="/mascot.png"
                 alt="ApplySauce mascot — a friendly sauce bottle with a magnifying glass and briefcase"
-                width={220}
-                height={220}
+                width={260}
+                height={260}
                 priority
                 className="drop-shadow-[0_30px_80px_rgba(245,184,0,0.2)]"
               />
@@ -344,7 +344,7 @@ export default function Home() {
       <footer className="relative border-t border-white/[0.04] px-6 py-20 sm:px-10 lg:px-20">
         <div className="mx-auto flex max-w-7xl flex-col gap-14 lg:flex-row lg:justify-between">
           <div className="max-w-xs space-y-5">
-            <Image src="/logo.png" alt="ApplySauce" width={180} height={54} className="h-auto w-40" />
+            <Image src="/logo.png" alt="ApplySauce" width={240} height={72} className="h-auto w-48 sm:w-56" />
             <p className="text-sm leading-relaxed text-white/25">
               AI-powered job search automation. From discovery to offer,
               ApplySauce has your back.
