@@ -20,7 +20,6 @@ const features = [
     title: "AI CV Tailoring",
     desc: "Two-phase AI generation: interrogation to fill gaps, then a role-specific CV preserving your original formatting.",
     keyword: "Tailor",
-    accent: true,
   },
   {
     num: "04",
@@ -198,15 +197,11 @@ export default function Home() {
                   {/* Number + Title side */}
                   <div className={`flex-1 ${isEven ? "lg:text-right" : "lg:text-left"}`}>
                     <div className={`flex items-center gap-4 ${isEven ? "lg:justify-end" : "lg:justify-start"}`}>
-                      <span className={`font-display text-6xl sm:text-7xl lg:text-8xl font-extrabold leading-none transition-colors duration-500 ${
-                        f.accent ? "text-brand" : "text-white/[0.06] group-hover:text-brand/20"
-                      }`}>
+                      <span className="font-display text-6xl sm:text-7xl lg:text-8xl font-extrabold leading-none transition-colors duration-500 text-white/[0.06] group-hover:text-brand/30">
                         {f.num}
                       </span>
                       <div>
-                        <h3 className={`font-display text-2xl font-bold tracking-tight sm:text-3xl transition-colors duration-500 ${
-                          f.accent ? "text-brand" : "text-white group-hover:text-brand"
-                        }`}>
+                        <h3 className="font-display text-2xl font-bold tracking-tight sm:text-3xl transition-colors duration-500 text-white group-hover:text-brand">
                           {f.title}
                         </h3>
                         <span className="mt-0.5 inline-block font-serif italic text-sm text-white/25 transition-colors duration-500 group-hover:text-white/40">
@@ -218,7 +213,7 @@ export default function Home() {
 
                   {/* Center dot — on the thread */}
                   <div className="hidden lg:flex items-center justify-center shrink-0">
-                    <div className={`h-3 w-3 rounded-full transition-all duration-500 ${f.accent ? "bg-brand shadow-[0_0_15px_var(--color-brand-glow)]" : "bg-white/15 group-hover:bg-brand group-hover:shadow-[0_0_15px_var(--color-brand-glow)]"}`} />
+                    <div className="h-3 w-3 rounded-full transition-all duration-500 bg-white/15 group-hover:bg-brand group-hover:shadow-[0_0_15px_var(--color-brand-glow)]" />
                   </div>
 
                   {/* Description side */}

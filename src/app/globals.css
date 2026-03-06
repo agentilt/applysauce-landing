@@ -121,12 +121,6 @@ body::before {
 .feature-row {
   transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.feature-row:hover {
-  transform: translateX(8px);
-}
-.feature-row.row-reverse:hover {
-  transform: translateX(-8px);
-}
 
 /* ── The golden thread — vertical connector between sections ── */
 .golden-thread {
@@ -193,9 +187,3 @@ body::before {
   z-index: 1;
 }
 
-@media (max-width: 768px) {
-  .feature-row:hover,
-  .feature-row.row-reverse:hover {
-    transform: none;
-  }
-}
