@@ -30,7 +30,6 @@ body::before {
 }
 
 ::selection { background: var(--color-brand); color: var(--color-bg); }
-html { scroll-behavior: smooth; }
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--color-brand); border-radius: 3px; }
