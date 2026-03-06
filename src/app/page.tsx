@@ -84,7 +84,7 @@ export default function Home() {
       </nav>
 
       {/* ════════ HERO — Poster style, centered ════════ */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-28 pb-8 sm:px-10 bg-halftone">
+      <section className="relative flex flex-col items-center px-6 pt-32 pb-20 sm:px-10 bg-halftone">
         {/* Radial glow — subtle, not a blob */}
         <div className="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[800px] rounded-full bg-brand/[0.03] blur-[100px]" />
 
@@ -165,12 +165,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Scroll hint */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-fade-in delay-1000">
-          <div className="h-8 w-4 rounded-full border border-white/15 flex items-start justify-center pt-1.5">
-            <div className="h-1.5 w-1 rounded-full bg-white/30 animate-float-gentle" />
-          </div>
-        </div>
       </section>
 
       {/* ════════ FEATURES — Editorial zigzag with golden thread ════════ */}
