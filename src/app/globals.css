@@ -10,7 +10,6 @@
   --color-bg-card-hover: #18181D;
   --color-bg-elevated: #1E1E24;
   --color-cream: #FFF8E7;
-  --color-cream-dark: #F5ECD4;
   --color-accent: #FF6B35;
   --color-ink: #1A1814;
   --font-display: "Bricolage Grotesque", sans-serif;
@@ -36,9 +35,7 @@ body::before {
   color: var(--color-bg);
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
@@ -74,11 +71,6 @@ html {
   100% { transform: translateX(-50%); }
 }
 
-@keyframes marquee-reverse {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
-}
-
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(40px); }
   to { opacity: 1; transform: translateY(0); }
@@ -99,60 +91,23 @@ html {
   to { transform: rotate(360deg); }
 }
 
-@keyframes draw-line {
-  from { stroke-dashoffset: 1000; }
-  to { stroke-dashoffset: 0; }
-}
-
-@keyframes tilt-hover {
-  0%, 100% { transform: rotate(-1deg); }
-  50% { transform: rotate(1deg); }
-}
-
-@keyframes scale-subtle {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.02); }
-}
-
 /* ── Animation classes ── */
 .animate-blob { animation: blob-drift 20s ease-in-out infinite; }
 .animate-blob-reverse { animation: blob-reverse 25s ease-in-out infinite; }
 .animate-float { animation: float 6s ease-in-out infinite; }
 .animate-float-gentle { animation: float-gentle 8s ease-in-out infinite; }
 .animate-marquee { animation: marquee 40s linear infinite; }
-.animate-marquee-reverse { animation: marquee-reverse 35s linear infinite; }
 .animate-fade-up { animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
 .animate-fade-in { animation: fade-in 0.7s ease-out both; }
-.animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
 .animate-spin-slow { animation: spin-slow 40s linear infinite; }
-.animate-tilt { animation: tilt-hover 6s ease-in-out infinite; }
-.animate-scale { animation: scale-subtle 8s ease-in-out infinite; }
 
-/* ── Stagger delays ── */
 .delay-100 { animation-delay: 100ms; }
 .delay-200 { animation-delay: 200ms; }
 .delay-300 { animation-delay: 300ms; }
 .delay-400 { animation-delay: 400ms; }
 .delay-500 { animation-delay: 500ms; }
 .delay-600 { animation-delay: 600ms; }
-.delay-700 { animation-delay: 700ms; }
-.delay-800 { animation-delay: 800ms; }
 .delay-1000 { animation-delay: 1000ms; }
-
-/* ── Gradient text ── */
-.text-gradient {
-  background: linear-gradient(135deg, var(--color-brand-light), var(--color-brand), var(--color-accent));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.text-gradient-warm {
-  background: linear-gradient(135deg, var(--color-brand), var(--color-accent));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
 
 /* ── Navbar ── */
 .nav-glass {
@@ -161,14 +116,17 @@ html {
   -webkit-backdrop-filter: blur(24px) saturate(1.5);
 }
 
-/* ── Feature card styles ── */
+/* ── Feature cards — two variants only ── */
 .feature-card {
   position: relative;
+  overflow: hidden;
   transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .feature-card:hover {
   transform: translateY(-4px);
 }
+
+/* Dark variant (default) */
 .feature-card-dark {
   background: var(--color-bg-card);
   border: 1px solid rgba(255, 255, 255, 0.04);
@@ -177,13 +135,8 @@ html {
   border-color: rgba(245, 184, 0, 0.15);
   box-shadow: 0 20px 60px -20px rgba(245, 184, 0, 0.08);
 }
-.feature-card-cream {
-  background: var(--color-cream);
-  color: var(--color-ink);
-}
-.feature-card-cream:hover {
-  box-shadow: 0 20px 60px -20px rgba(0, 0, 0, 0.15);
-}
+
+/* Brand accent variant */
 .feature-card-brand {
   background: linear-gradient(135deg, var(--color-brand), var(--color-brand-dark));
   color: var(--color-bg);
@@ -191,15 +144,8 @@ html {
 .feature-card-brand:hover {
   box-shadow: 0 20px 60px -20px rgba(245, 184, 0, 0.3);
 }
-.feature-card-outline {
-  background: transparent;
-  border: 2px solid rgba(255, 255, 255, 0.06);
-}
-.feature-card-outline:hover {
-  border-color: var(--color-brand);
-}
 
-/* ── Big number behind feature cards ── */
+/* ── Ghost numbers ── */
 .feature-number {
   position: absolute;
   top: -0.15em;
@@ -207,14 +153,47 @@ html {
   font-size: 8rem;
   font-weight: 800;
   line-height: 1;
-  opacity: 0.07;
+  opacity: 0.05;
   pointer-events: none;
   font-family: var(--font-display);
 }
-.feature-card-cream .feature-number { opacity: 0.12; color: var(--color-ink); }
-.feature-card-brand .feature-number { opacity: 0.12; color: var(--color-bg); }
+.feature-card-brand .feature-number {
+  opacity: 0.12;
+  color: var(--color-bg);
+}
 
-/* ── Button styles ── */
+/* ── Top-edge glow on dark cards ── */
+.feature-card-dark::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-brand), transparent);
+  transform: translateX(-50%) scaleX(0);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.feature-card-dark:hover::before {
+  transform: translateX(-50%) scaleX(1);
+}
+.feature-card-dark::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, var(--color-brand-glow) 0%, transparent 70%);
+  transform: translate(-50%, -60%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.feature-card-dark:hover::after {
+  opacity: 1;
+}
+
+/* ── Button ── */
 .btn-primary {
   position: relative;
   overflow: hidden;
@@ -233,19 +212,22 @@ html {
   transform: translateY(0);
 }
 
-/* ── Diagonal section divider ── */
-.diagonal-top {
-  clip-path: polygon(0 clamp(30px, 5vw, 80px), 100% 0, 100% 100%, 0 100%);
-  margin-top: calc(-1 * clamp(30px, 5vw, 80px));
-  padding-top: clamp(60px, 8vw, 120px);
+/* ── Hover glow (not constant) ── */
+.btn-hover-glow {
+  transition: box-shadow 0.4s ease;
+}
+.btn-hover-glow:hover {
+  box-shadow: 0 0 30px var(--color-brand-glow), 0 0 80px var(--color-brand-glow);
 }
 
-/* ── Step card hover ── */
+/* ── Step card ── */
 .step-card {
   transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .step-card:hover {
   transform: translateY(-6px) rotate(-0.5deg);
+  border-color: rgba(245, 184, 0, 0.2);
+  box-shadow: 0 20px 60px -20px rgba(245, 184, 0, 0.1);
 }
 
 /* ── Stat separator ── */
@@ -259,11 +241,10 @@ html {
   top: 15%;
   height: 70%;
   width: 1px;
-  background: linear-gradient(to bottom, transparent, rgba(245, 184, 0, 0.15), transparent);
+  background: linear-gradient(to bottom, transparent, rgba(245, 184, 0, 0.12), transparent);
 }
 .stat-sep:last-child::after { display: none; }
 
-/* ── Responsive ── */
 @media (max-width: 768px) {
   .feature-number { font-size: 5rem; }
   .stat-sep::after { display: none; }

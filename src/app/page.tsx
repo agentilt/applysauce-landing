@@ -1,12 +1,12 @@
 import Image from "next/image";
 
-/* ─── Feature data with visual variants ─── */
+/* ─── Feature data — two variants: dark (default) and brand (accent) ─── */
 
 const features: {
   num: string;
   title: string;
   desc: string;
-  variant: "dark" | "cream" | "brand" | "outline";
+  variant: "dark" | "brand";
   size: string;
   icon: React.ReactNode;
 }[] = [
@@ -21,15 +21,15 @@ const features: {
   {
     num: "02",
     title: "ATS Scoring",
-    desc: "Score every job 0-100 against your CV. Know your real match before you apply.",
-    variant: "cream",
+    desc: "Score every job 0-100 against your CV with keyword matching. Know your real match before you apply.",
+    variant: "dark",
     size: "md:col-span-2 lg:col-span-2",
     icon: <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>,
   },
   {
     num: "03",
     title: "AI CV Tailoring",
-    desc: "Two-phase AI generation: interrogation to fill gaps, then a role-specific CV preserving your formatting.",
+    desc: "Two-phase AI generation: interrogation to fill gaps, then a role-specific CV preserving your original formatting.",
     variant: "brand",
     size: "md:col-span-2 lg:col-span-2",
     icon: <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>,
@@ -38,7 +38,7 @@ const features: {
     num: "04",
     title: "Cover Letters & Outreach",
     desc: "Templated cover letters plus 4 LinkedIn/email outreach variants — all personalized, never auto-sent.",
-    variant: "outline",
+    variant: "dark",
     size: "md:col-span-2 lg:col-span-3",
     icon: <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>,
   },
@@ -46,24 +46,24 @@ const features: {
     num: "05",
     title: "Interview Prep",
     desc: "AI-generated STAR stories, company-specific questions, and talking points tailored to each role you apply for.",
-    variant: "cream",
-    size: "md:col-span-2 lg:col-span-3",
+    variant: "dark",
+    size: "md:col-span-2 lg:col-span-2",
     icon: <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>,
   },
   {
     num: "06",
     title: "Contact Prospecting",
-    desc: "Find and score referral contacts. Rank by warmth and relevance to maximize introductions.",
+    desc: "Find and score referral contacts via Clay and Vibe. Rank by warmth and relevance to maximize introductions.",
     variant: "dark",
-    size: "md:col-span-2 lg:col-span-2",
+    size: "md:col-span-2 lg:col-span-3",
     icon: <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
   },
   {
     num: "07",
     title: "Pipeline Dashboard",
     desc: "Track every application from discovery to offer. Funnel charts, follow-up alerts, and weekly digest.",
-    variant: "outline",
-    size: "md:col-span-2 lg:col-span-2",
+    variant: "dark",
+    size: "md:col-span-2 lg:col-span-3",
     icon: <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M7 11.207V17"/><path d="M11 8.207V17"/><path d="M15 12.207V17"/><path d="M19 5.207V17"/></svg>,
   },
   {
@@ -71,7 +71,7 @@ const features: {
     title: "Industry Packs",
     desc: "Rule packs for consulting, IB, tech, and policy — materials that match industry expectations.",
     variant: "brand",
-    size: "md:col-span-2 lg:col-span-1",
+    size: "md:col-span-2 lg:col-span-2",
     icon: <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 12h.01"/><path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><path d="M22 13a18.15 18.15 0 0 1-20 0"/><rect width="20" height="14" x="2" y="6" rx="2"/></svg>,
   },
 ];
@@ -153,7 +153,7 @@ export default function Home() {
                 </span>
               </div>
 
-              {/* Headline — mixed fonts for editorial feel */}
+              {/* Headline — mixed fonts, used ONCE here */}
               <h1 className="animate-fade-up delay-100">
                 <span className="block font-display text-5xl font-extrabold leading-[1.0] tracking-tight sm:text-6xl lg:text-7xl xl:text-[5.5rem]">
                   Land your
@@ -173,11 +173,11 @@ export default function Home() {
                 interview prep.
               </p>
 
-              {/* CTA */}
+              {/* CTA — glow on hover only, not constant */}
               <div className="animate-fade-up delay-400 flex flex-wrap justify-center gap-4 lg:justify-start">
                 <a
                   href="https://app.applysauce.com"
-                  className="btn-primary group rounded-full bg-brand px-8 py-4 font-bold text-bg text-lg animate-pulse-glow"
+                  className="btn-primary btn-hover-glow group rounded-full bg-brand px-8 py-4 font-bold text-bg text-lg"
                 >
                   <span className="relative z-10 flex items-center gap-2">
                     Get Started Free
@@ -209,17 +209,14 @@ export default function Home() {
 
             {/* Right — mascot */}
             <div className="relative w-64 shrink-0 sm:w-80 lg:w-[420px] animate-fade-up delay-500">
-              {/* Warm glow */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-brand/20 via-brand/8 to-accent/8 blur-[100px] animate-blob" />
 
-              {/* Decorative ring */}
               <div className="absolute inset-[-20px] animate-spin-slow opacity-[0.06]">
                 <svg viewBox="0 0 400 400" fill="none" className="w-full h-full">
                   <circle cx="200" cy="200" r="195" stroke="currentColor" strokeWidth="0.5" strokeDasharray="6 14" className="text-brand" />
                 </svg>
               </div>
 
-              {/* Mascot */}
               <div className="animate-float relative z-10">
                 <Image
                   src="/mascot.png"
@@ -255,36 +252,25 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ════════ DOUBLE MARQUEE ════════ */}
-      <div className="relative py-6 overflow-hidden border-y border-white/[0.03]">
-        {/* Fade edges */}
+      {/* ════════ MARQUEE — single row, actually visible ════════ */}
+      <div className="relative py-5 overflow-hidden border-y border-white/[0.04]">
         <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-r from-bg to-transparent" />
         <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-l from-bg to-transparent" />
 
-        {/* Row 1 */}
-        <div className="flex animate-marquee whitespace-nowrap mb-3">
+        <div className="flex animate-marquee whitespace-nowrap">
           {[...marqueeItems, ...marqueeItems].map((word, i) => (
-            <span key={`a-${i}`} className="mx-5 flex items-center gap-3 text-sm font-display font-bold text-white/[0.07] uppercase tracking-wider">
-              <span className="h-1 w-1 rounded-full bg-brand/30" />
-              {word}
-            </span>
-          ))}
-        </div>
-        {/* Row 2 — reverse direction */}
-        <div className="flex animate-marquee-reverse whitespace-nowrap">
-          {[...marqueeItems, ...marqueeItems].map((word, i) => (
-            <span key={`b-${i}`} className="mx-5 flex items-center gap-3 text-sm font-display font-bold text-white/[0.05] uppercase tracking-wider">
-              <span className="h-1 w-1 rounded-full bg-accent/20" />
+            <span key={i} className="mx-6 flex items-center gap-3 text-sm font-display font-bold text-white/15 uppercase tracking-wider">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand/40" />
               {word}
             </span>
           ))}
         </div>
       </div>
 
-      {/* ════════ FEATURES — Asymmetric Editorial Grid ════════ */}
+      {/* ════════ FEATURES — Asymmetric grid, two card types ════════ */}
       <section id="features" className="px-6 py-28 sm:px-10 lg:px-20">
         <div className="mx-auto max-w-7xl">
-          {/* Section header — left-aligned for editorial feel */}
+          {/* Section header — left-aligned, editorial */}
           <div className="mb-20 max-w-3xl">
             <span className="font-display text-sm font-bold uppercase tracking-[0.2em] text-brand/60">
               Features
@@ -299,9 +285,9 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Asymmetric grid — 5 columns for varied sizing */}
+          {/* Grid — 5 columns, all rows add up to 5 */}
           <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-4">
-            {features.map((f, i) => (
+            {features.map((f) => (
               <div
                 key={f.title}
                 className={`feature-card feature-card-${f.variant} rounded-3xl p-8 sm:p-10 ${f.size} overflow-hidden`}
@@ -309,35 +295,22 @@ export default function Home() {
                 <span className="feature-number">{f.num}</span>
 
                 <div className="relative z-10">
-                  {/* Icon */}
                   <div className={`mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl ${
                     f.variant === "brand"
                       ? "bg-bg/10 text-bg"
-                      : f.variant === "cream"
-                        ? "bg-ink/5 text-ink/70"
-                        : "bg-white/[0.04] text-white/50"
+                      : "bg-white/[0.04] text-white/50"
                   }`}>
                     {f.icon}
                   </div>
 
-                  {/* Title */}
                   <h3 className={`mb-3 font-display text-xl font-bold tracking-tight sm:text-2xl ${
-                    f.variant === "brand"
-                      ? "text-bg"
-                      : f.variant === "cream"
-                        ? "text-ink"
-                        : "text-white"
+                    f.variant === "brand" ? "text-bg" : "text-white"
                   }`}>
                     {f.title}
                   </h3>
 
-                  {/* Description */}
                   <p className={`text-sm sm:text-base leading-relaxed max-w-md ${
-                    f.variant === "brand"
-                      ? "text-bg/70"
-                      : f.variant === "cream"
-                        ? "text-ink/50"
-                        : "text-white/40"
+                    f.variant === "brand" ? "text-bg/70" : "text-white/40"
                   }`}>
                     {f.desc}
                   </p>
@@ -348,47 +321,49 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ════════ CREAM BREAK — How It Works ════════ */}
-      <section id="how" className="diagonal-top relative bg-cream px-6 py-28 sm:px-10 lg:px-20">
+      {/* ════════ HOW IT WORKS — stays on dark canvas ════════ */}
+      <section id="how" className="relative px-6 py-28 sm:px-10 lg:px-20">
+        {/* Subtle divider line */}
+        <div className="pointer-events-none absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand/15 to-transparent" />
+
         <div className="mx-auto max-w-7xl">
-          {/* Header */}
+          {/* Header — split layout */}
           <div className="mb-20 flex flex-col items-center text-center lg:flex-row lg:items-end lg:justify-between lg:text-left">
             <div>
-              <span className="font-display text-sm font-bold uppercase tracking-[0.2em] text-accent/60">
+              <span className="font-display text-sm font-bold uppercase tracking-[0.2em] text-brand/60">
                 How It Works
               </span>
-              <h2 className="mt-4 font-display text-4xl font-extrabold tracking-tight text-ink sm:text-5xl lg:text-6xl">
-                Four steps to{" "}
-                <span className="font-serif italic font-normal text-accent">your next offer.</span>
+              <h2 className="mt-4 font-display text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+                Four steps to your next offer.
               </h2>
             </div>
-            <p className="mt-6 max-w-sm text-base leading-relaxed text-ink/40 lg:mt-0 lg:text-right">
+            <p className="mt-6 max-w-sm text-base leading-relaxed text-white/35 lg:mt-0 lg:text-right">
               Set it up once. ApplySauce runs your pipeline around the clock while you focus on what matters.
             </p>
           </div>
 
-          {/* Steps — cards with tilt on hover */}
+          {/* Steps — dark cards with brand accents */}
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {steps.map((s, i) => (
+            {steps.map((s) => (
               <div
                 key={s.num}
-                className="step-card group rounded-3xl bg-white p-8 shadow-[0_1px_3px_rgba(0,0,0,0.04)] border border-ink/[0.04]"
+                className="step-card group rounded-3xl border border-white/[0.04] bg-bg-card p-8"
               >
                 {/* Number */}
-                <div className="mb-8 font-display text-6xl font-extrabold text-ink/[0.1] leading-none">
+                <div className="mb-8 font-display text-6xl font-extrabold text-brand/10 leading-none transition-colors group-hover:text-brand/25">
                   {s.num}
                 </div>
 
                 {/* Content */}
-                <h3 className="mb-3 font-display text-xl font-bold tracking-tight text-ink transition-colors group-hover:text-accent">
+                <h3 className="mb-3 font-display text-xl font-bold tracking-tight text-white transition-colors group-hover:text-brand">
                   {s.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-ink/40">
+                <p className="text-sm leading-relaxed text-white/35">
                   {s.desc}
                 </p>
 
                 {/* Arrow */}
-                <div className="mt-6 flex items-center gap-2 text-sm font-semibold text-accent/40 transition-all group-hover:text-accent group-hover:gap-3">
+                <div className="mt-6 flex items-center gap-2 text-sm font-semibold text-brand/30 transition-all group-hover:text-brand group-hover:gap-3">
                   <span className="h-px w-6 bg-current transition-all group-hover:w-10" />
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                 </div>
@@ -398,9 +373,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ════════ STATS BAND ════════ */}
-      <section className="bg-ink px-6 py-20 sm:px-10 lg:px-20">
-        <div className="mx-auto max-w-5xl">
+      {/* ════════ STATS ════════ */}
+      <section className="px-6 py-20 sm:px-10 lg:px-20">
+        <div className="mx-auto max-w-5xl rounded-3xl border border-white/[0.04] bg-bg-card p-10 sm:p-14">
           <div className="grid grid-cols-2 gap-10 lg:grid-cols-4">
             {[
               { value: "14", label: "AI Services", suffix: "" },
@@ -409,13 +384,13 @@ export default function Home() {
               { value: "24/7", label: "Pipeline Running", suffix: "" },
             ].map((stat) => (
               <div key={stat.label} className="stat-sep text-center">
-                <div className="font-display text-5xl font-extrabold text-cream sm:text-6xl">
+                <div className="font-display text-5xl font-extrabold text-white sm:text-6xl">
                   {stat.value}
                   {stat.suffix && (
                     <span className="font-serif italic text-brand text-4xl sm:text-5xl">{stat.suffix}</span>
                   )}
                 </div>
-                <div className="mt-2 text-sm font-medium text-cream/30">
+                <div className="mt-2 text-sm font-medium text-white/30">
                   {stat.label}
                 </div>
               </div>
@@ -426,14 +401,12 @@ export default function Home() {
 
       {/* ════════ CTA ════════ */}
       <section id="waitlist" className="relative px-6 py-32 sm:px-10 lg:px-20">
-        {/* Background */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-brand/6 blur-[200px] animate-blob" />
           <div className="absolute top-1/3 right-1/4 h-[300px] w-[300px] rounded-full bg-accent/4 blur-[150px] animate-blob-reverse" />
         </div>
 
         <div className="relative mx-auto max-w-4xl text-center">
-          {/* Mascot small */}
           <div className="inline-block mb-8 animate-float-gentle">
             <Image
               src="/mascot.png"
@@ -445,8 +418,7 @@ export default function Home() {
           </div>
 
           <h2 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-            Ready to{" "}
-            <span className="font-serif italic font-normal text-brand">supercharge</span>
+            Ready to supercharge
             <br />
             your job search?
           </h2>
@@ -459,7 +431,7 @@ export default function Home() {
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <a
               href="https://app.applysauce.com"
-              className="btn-primary group rounded-full bg-brand px-10 py-4 text-lg font-bold text-bg hover:shadow-[0_0_60px_var(--color-brand-glow)]"
+              className="btn-primary btn-hover-glow group rounded-full bg-brand px-10 py-4 text-lg font-bold text-bg"
             >
               <span className="relative z-10 flex items-center gap-2">
                 Join the Waitlist
@@ -495,7 +467,6 @@ export default function Home() {
       {/* ════════ FOOTER ════════ */}
       <footer className="relative border-t border-white/[0.04] px-6 py-20 sm:px-10 lg:px-20">
         <div className="mx-auto flex max-w-7xl flex-col gap-14 lg:flex-row lg:justify-between">
-          {/* Brand */}
           <div className="max-w-xs space-y-5">
             <Image src="/logo.png" alt="ApplySauce" width={180} height={54} className="h-auto w-40" />
             <p className="text-sm leading-relaxed text-white/25">
@@ -514,7 +485,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Links */}
           <div className="grid grid-cols-2 gap-10 sm:grid-cols-4">
             {Object.entries(footerLinks).map(([heading, links]) => (
               <div key={heading}>
