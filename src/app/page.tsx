@@ -48,13 +48,62 @@ const pipeline = [
   { label: "Land Interviews", sub: "Custom prep ready" },
 ];
 
+const plans = [
+  {
+    name: "Free",
+    price: "$0",
+    period: "forever",
+    desc: "See your ATS score and get one tailored CV — experience the value before you commit.",
+    features: [
+      "ATS compatibility score",
+      "1 tailored CV per month",
+      "Job match preview",
+    ],
+    cta: "Get Started Free",
+    href: "https://app.applysauce.com",
+    featured: false,
+  },
+  {
+    name: "Pro",
+    price: "$29",
+    period: "/mo",
+    desc: "Full pipeline access for a focused job search. More than scoring — it's your entire application engine.",
+    features: [
+      "20 applications / month",
+      "Unlimited ATS scoring",
+      "AI-tailored CVs & cover letters",
+      "LinkedIn & email outreach",
+      "Interview prep & STAR stories",
+      "Pipeline dashboard & alerts",
+    ],
+    cta: "Start Pro",
+    href: "https://app.applysauce.com",
+    featured: true,
+  },
+  {
+    name: "Sprint",
+    price: "$79",
+    period: "one-time",
+    desc: "Go all-in for 30 days — no subscription, no recurring charges. For when you just need to land the job.",
+    features: [
+      "Everything in Pro",
+      "30 days of full access",
+      "No recurring commitment",
+      "Priority support",
+    ],
+    cta: "Buy Sprint",
+    href: "https://app.applysauce.com",
+    featured: false,
+  },
+];
+
 const footerLinks = {
   Product: [
     { label: "Job Discovery", href: "#features" },
     { label: "ATS Scoring", href: "#features" },
     { label: "CV Builder", href: "#features" },
     { label: "Cover Letters", href: "#features" },
-    { label: "Interview Prep", href: "#features" },
+    { label: "Pricing", href: "#pricing" },
   ],
   Company: [
     { label: "About", href: "#" },
@@ -106,6 +155,9 @@ export default function Home() {
             </a>
             <a href="#how" className="hidden text-sm text-white/50 transition hover:text-white md:block font-medium">
               How it Works
+            </a>
+            <a href="#pricing" className="hidden text-sm text-white/50 transition hover:text-white md:block font-medium">
+              Pricing
             </a>
             <a
               href="https://app.applysauce.com"
@@ -298,6 +350,91 @@ export default function Home() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════ PRICING ════════ */}
+      <section id="pricing" className="relative px-4 py-16 sm:px-10 sm:py-28 lg:px-20">
+        <div className="mx-auto max-w-6xl">
+          {/* Header */}
+          <div className="mb-12 sm:mb-20 text-center">
+            <span className="font-display text-sm font-bold uppercase tracking-[0.2em] text-brand/60">
+              Pricing
+            </span>
+            <h2 className="mt-4 font-display text-2xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+              Simple plans.{" "}
+              <span className="font-serif italic font-normal text-brand">Real results.</span>
+            </h2>
+            <p className="mx-auto mt-6 max-w-lg text-base text-white/35 leading-relaxed sm:text-lg">
+              Start free, upgrade when you&apos;re ready. Cancel anytime.
+            </p>
+          </div>
+
+          {/* Cards */}
+          <div className="grid gap-6 sm:gap-8 md:grid-cols-3 items-start">
+            {plans.map((plan) => (
+              <div
+                key={plan.name}
+                className={`pricing-card group relative rounded-2xl border p-6 sm:p-8 transition-all duration-500 ${
+                  plan.featured
+                    ? "border-brand/30 bg-brand/[0.04] shadow-[0_0_60px_rgba(245,184,0,0.06)] md:-mt-4 md:mb-[-1rem]"
+                    : "border-white/[0.06] bg-bg-card hover:border-white/[0.1]"
+                }`}
+              >
+                {plan.featured && (
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                    <span className="rounded-full bg-brand px-4 py-1 text-[11px] font-bold uppercase tracking-wider text-bg">
+                      Most Popular
+                    </span>
+                  </div>
+                )}
+
+                {/* Plan name */}
+                <div className="mb-6">
+                  <h3 className={`font-display text-lg font-bold tracking-tight ${plan.featured ? "text-brand" : "text-white/70"}`}>
+                    {plan.name}
+                  </h3>
+                </div>
+
+                {/* Price */}
+                <div className="mb-6 flex items-baseline gap-1.5">
+                  <span className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">
+                    {plan.price}
+                  </span>
+                  <span className="text-sm text-white/30 font-medium">
+                    {plan.period}
+                  </span>
+                </div>
+
+                {/* Description */}
+                <p className="mb-8 text-sm leading-relaxed text-white/35">
+                  {plan.desc}
+                </p>
+
+                {/* CTA */}
+                <a
+                  href={plan.href}
+                  className={`mb-8 block w-full rounded-full py-3 text-center text-sm font-bold transition-all duration-300 ${
+                    plan.featured
+                      ? "btn-primary bg-brand text-bg hover:shadow-[0_0_30px_var(--color-brand-glow)]"
+                      : "border border-white/[0.08] text-white/60 hover:border-brand/30 hover:text-white"
+                  }`}
+                >
+                  {plan.cta}
+                </a>
+
+                {/* Features list */}
+                <ul className="space-y-3">
+                  {plan.features.map((feat) => (
+                    <li key={feat} className="flex items-start gap-2.5 text-sm text-white/40">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`mt-0.5 shrink-0 ${plan.featured ? "text-brand" : "text-white/20"}`}><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                      <span>{feat}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </section>
