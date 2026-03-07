@@ -31,14 +31,16 @@ body::before {
 
 ::selection { background: var(--color-brand); color: var(--color-bg); }
 
-/* ── Custom cursor — gold dot ── */
-*,
-*::before,
-*::after {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Ccircle cx='10' cy='10' r='4' fill='%23F5B800'/%3E%3Ccircle cx='10' cy='10' r='9' stroke='%23F5B800' stroke-width='1' fill='none' opacity='0.3'/%3E%3C/svg%3E") 10 10, auto;
-}
-a, button, [role="button"] {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Ccircle cx='12' cy='12' r='6' fill='%23F5B800'/%3E%3Ccircle cx='12' cy='12' r='11' stroke='%23F5B800' stroke-width='1' fill='none' opacity='0.4'/%3E%3C/svg%3E") 12 12, pointer;
+/* ── Custom cursor — gold dot (desktop only) ── */
+@media (hover: hover) and (pointer: fine) {
+  *,
+  *::before,
+  *::after {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Ccircle cx='10' cy='10' r='4' fill='%23F5B800'/%3E%3Ccircle cx='10' cy='10' r='9' stroke='%23F5B800' stroke-width='1' fill='none' opacity='0.3'/%3E%3C/svg%3E") 10 10, auto;
+  }
+  a, button, [role="button"] {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Ccircle cx='12' cy='12' r='6' fill='%23F5B800'/%3E%3Ccircle cx='12' cy='12' r='11' stroke='%23F5B800' stroke-width='1' fill='none' opacity='0.4'/%3E%3C/svg%3E") 12 12, pointer;
+  }
 }
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
