@@ -51,7 +51,7 @@ const pipeline = [
 const plans = [
   {
     name: "Free",
-    price: "$0",
+    price: "€0",
     period: "forever",
     desc: "See your ATS score and get one tailored CV — experience the value before you commit.",
     features: [
@@ -65,35 +65,20 @@ const plans = [
   },
   {
     name: "Pro",
-    price: "$29",
-    period: "/mo",
-    desc: "Full pipeline access for a focused job search. More than scoring — it's your entire application engine.",
+    price: "€30",
+    period: "/year",
+    desc: "Unlock everything for a full year. Your entire application engine for less than the price of a coffee per month.",
     features: [
-      "20 applications / month",
+      "Unlimited applications",
       "Unlimited ATS scoring",
       "AI-tailored CVs & cover letters",
       "LinkedIn & email outreach",
       "Interview prep & STAR stories",
       "Pipeline dashboard & alerts",
     ],
-    cta: "Start Pro",
+    cta: "Go Pro",
     href: "https://app.applysauce.com",
     featured: true,
-  },
-  {
-    name: "Sprint",
-    price: "$79",
-    period: "one-time",
-    desc: "Go all-in for 30 days — no subscription, no recurring charges. For when you just need to land the job.",
-    features: [
-      "Everything in Pro",
-      "30 days of full access",
-      "No recurring commitment",
-      "Priority support",
-    ],
-    cta: "Buy Sprint",
-    href: "https://app.applysauce.com",
-    featured: false,
   },
 ];
 
