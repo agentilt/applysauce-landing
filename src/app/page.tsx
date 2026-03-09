@@ -6,46 +6,58 @@ const features = [
   {
     num: "01",
     title: "Job Discovery",
-    desc: "Automatically search Indeed, parse results, and surface roles matching your profile, skills, and career goals.",
+    desc: "Import jobs from Indeed, deduplicate automatically, and surface roles that match your profile across multiple career paths.",
     keyword: "Search",
   },
   {
     num: "02",
-    title: "ATS Scoring",
-    desc: "Score every job 0-100 against your CV with keyword matching. Know your real match before you apply.",
+    title: "ATS Scoring & Prioritization",
+    desc: "Every job scored 0-100 with keyword matching plus interview probability. Sort by fit, filter by category, focus on what matters.",
     keyword: "Score",
   },
   {
     num: "03",
     title: "AI CV Tailoring",
-    desc: "Two-phase AI generation: interrogation to fill gaps, then a role-specific CV preserving your original formatting.",
+    desc: "Two-phase AI generation: interrogation to identify gaps, then a role-specific CV preserving your original formatting.",
     keyword: "Tailor",
   },
   {
     num: "04",
     title: "Cover Letters & Outreach",
-    desc: "Templated cover letters plus 4 LinkedIn/email outreach variants — all personalized, never auto-sent.",
+    desc: "Personalized cover letters plus 4 outreach variants — LinkedIn request, LinkedIn follow-up, cold email, and email follow-up. All drafts, never auto-sent.",
     keyword: "Reach",
   },
   {
     num: "05",
-    title: "Interview Prep",
-    desc: "AI-generated STAR stories, company-specific questions, and talking points tailored to each role you apply for.",
-    keyword: "Prepare",
+    title: "Contact Prospecting",
+    desc: "Find recruiters, hiring managers, and warm contacts at target companies. Auto-scored by warmth — shared university, field, and nationality.",
+    keyword: "Connect",
   },
   {
     num: "06",
+    title: "Interview Prep & Tracking",
+    desc: "STAR stories, behavioral questions, and company research briefs on demand. Track rounds, schedule dates, and set follow-up reminders.",
+    keyword: "Prepare",
+  },
+  {
+    num: "07",
+    title: "Career Path Management",
+    desc: "Organize your search by category — consulting, tech, finance, or whatever you target. Each path has its own keyword bank, jobs, and contacts.",
+    keyword: "Organize",
+  },
+  {
+    num: "08",
     title: "Pipeline Dashboard",
-    desc: "Track every application from discovery to offer. Funnel charts, follow-up alerts, and weekly digest — all in one view.",
+    desc: "Track every application from discovery to offer. Funnel visualization, follow-up alerts, weekly digest, and deadline reminders — all in one view.",
     keyword: "Track",
   },
 ];
 
 const pipeline = [
-  { label: "Upload CV", sub: "Parse & analyze" },
-  { label: "Set Targets", sub: "Roles & preferences" },
-  { label: "AI Pipeline", sub: "Tailored CV, CL & more" },
-  { label: "Land Interviews", sub: "Custom prep ready" },
+  { label: "Upload Profile", sub: "CV + career preferences" },
+  { label: "Discover & Score", sub: "Import jobs, rank by fit" },
+  { label: "Generate Materials", sub: "CV, cover letter & outreach" },
+  { label: "Network & Apply", sub: "Warm contacts + interview prep" },
 ];
 
 const plans = [
@@ -69,12 +81,13 @@ const plans = [
     period: "/year",
     desc: "Unlock everything for a full year. Your entire application engine for less than the price of a coffee per month.",
     features: [
-      "Unlimited applications",
-      "Unlimited ATS scoring",
+      "Unlimited ATS scoring & job imports",
       "AI-tailored CVs & cover letters",
-      "LinkedIn & email outreach",
-      "Interview prep & STAR stories",
-      "Pipeline dashboard & alerts",
+      "LinkedIn & email outreach drafts",
+      "Contact prospecting & referral scoring",
+      "Interview prep, tracking & follow-ups",
+      "Career path management",
+      "Pipeline dashboard & weekly digest",
     ],
     cta: "Go Pro",
     href: "https://app.applysauce.com",
@@ -86,8 +99,9 @@ const footerLinks = {
   Product: [
     { label: "Job Discovery", href: "#features" },
     { label: "ATS Scoring", href: "#features" },
-    { label: "CV Builder", href: "#features" },
-    { label: "Cover Letters", href: "#features" },
+    { label: "CV Tailoring", href: "#features" },
+    { label: "Contact Prospecting", href: "#features" },
+    { label: "Interview Prep", href: "#features" },
     { label: "Pricing", href: "#pricing" },
   ],
   Company: [
@@ -200,7 +214,7 @@ export default function Home() {
           {/* Subhead */}
           <p className="animate-fade-up delay-300 mx-auto mt-6 max-w-lg text-base leading-relaxed text-white/45 sm:mt-8 sm:text-xl">
             ApplySauce automates your entire job search &mdash; from discovery
-            and ATS scoring to tailored CVs and interview prep.
+            and ATS scoring to tailored CVs, warm referrals, and interview prep.
           </p>
 
           {/* CTA */}
@@ -225,8 +239,8 @@ export default function Home() {
           {/* Inline stats — not a box, just inline pills */}
           <div className="animate-fade-up delay-500 mt-10 flex flex-wrap items-center justify-center gap-3">
             {[
-              "14 AI Services",
-              "Optimized for ATS",
+              "ATS Scoring 0-100",
+              "Warm Referral Finder",
               "Tailored to Every Role",
             ].map((s) => (
               <span key={s} className="rounded-full border border-white/[0.06] bg-white/[0.02] px-4 py-1.5 text-xs font-medium text-white/35">
@@ -450,8 +464,8 @@ export default function Home() {
               </h2>
 
               <p className="mx-auto mt-6 max-w-md text-base text-white/35 leading-relaxed">
-                Start using AI-powered job search automation that
-                tailors every application and gets you to interviews faster.
+                AI-powered job search automation that scores, tailors,
+                finds warm contacts, and gets you to interviews faster.
               </p>
 
               <div className="mt-10 flex flex-wrap justify-center gap-4">
@@ -492,8 +506,8 @@ export default function Home() {
           <div className="max-w-xs space-y-5">
             <Image src="/logo.png" alt="ApplySauce" width={320} height={96} className="h-auto w-56 sm:w-72" />
             <p className="text-sm leading-relaxed text-white/25">
-              AI-powered job search automation. From discovery to offer,
-              ApplySauce has your back.
+              AI-powered job search automation. From discovery to warm
+              referrals to offer, ApplySauce has your back.
             </p>
             <div className="flex gap-3">
               {socialLinks.map((s) => (

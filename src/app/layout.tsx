@@ -4,11 +4,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "ApplySauce — AI-Powered Job Search Automation",
   description:
-    "From Indeed discovery and ATS scoring to tailored CVs, cover letters, and interview prep. Land your dream job, faster.",
+    "From Indeed discovery and ATS scoring to tailored CVs, warm referrals, and interview prep. Land your dream job, faster.",
   openGraph: {
     title: "ApplySauce — Land Your Dream Job, Faster",
     description:
-      "AI-powered job search automation: discovery, scoring, tailored materials, and interview prep.",
+      "AI-powered job search automation: discovery, scoring, tailored materials, contact prospecting, and interview prep.",
     type: "website",
   },
 };
