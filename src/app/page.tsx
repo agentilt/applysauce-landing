@@ -371,7 +371,7 @@ export default function Home() {
           </div>
 
           {/* Cards */}
-          <div className="grid gap-6 sm:gap-8 md:grid-cols-3 items-start">
+          <div className="mx-auto grid max-w-4xl gap-6 sm:gap-8 md:grid-cols-2 items-start">
             {plans.map((plan) => (
               <div
                 key={plan.name}
